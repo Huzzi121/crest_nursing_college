@@ -11,6 +11,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   // Track scroll position for header glass transition & active section indicator
   useEffect(() => {
@@ -48,10 +49,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
   return (
     <>
       {/* Floating Island Capsule Pill Header */}
-      <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 px-3 sm:px-6 pointer-events-none transition-all duration-300">
+      <header className="fixed top-2 sm:top-3 left-0 right-0 z-50 px-3 sm:px-4 pointer-events-none transition-all duration-300">
         <div
-          className={`navbar-pill max-w-6xl mx-auto rounded-full transition-all duration-300 pointer-events-auto px-4 sm:px-6 lg:px-7 py-2.5 sm:py-3 flex items-center justify-between border border-white/20 bg-[#0A3D39] text-white ${
-            isScrolled ? 'shadow-2xl shadow-black/40 scale-[0.99]' : 'shadow-xl shadow-black/25'
+          className={`navbar-pill max-w-5xl mx-auto rounded-full transition-all duration-300 pointer-events-auto px-3.5 sm:px-5 py-1.5 sm:py-2 flex items-center justify-between text-white ${
+            isScrolled ? 'shadow-2xl shadow-black/40 scale-[0.99] !bg-[#072624]/75' : 'shadow-lg shadow-black/20'
           }`}
         >
           {/* 1. Crest Logo Button */}
@@ -60,53 +61,69 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             className="outline-none focus-visible:ring-2 focus-visible:ring-crest-gold rounded-full transition-transform hover:scale-[1.02] flex items-center flex-shrink-0"
             aria-label="Crest College of Nursing Homepage"
           >
-            <CrestLogo variant="light" className="scale-90 sm:scale-95 origin-left" />
+            <CrestLogo variant="light" className="scale-80 sm:scale-85 origin-left" />
           </a>
 
-          {/* 2. Desktop Navigation Links with Strictly Equal Distances */}
-          <nav className="hidden md:flex items-center justify-center gap-4 md:gap-5 lg:gap-7 xl:gap-8">
+          {/* 2. Desktop Navigation Links with Capsule Hover Animation */}
+          <nav
+            onMouseLeave={() => setHoveredLink(null)}
+            className="hidden md:flex items-center justify-center gap-0.5 lg:gap-1.5"
+          >
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
+              const isHovered = hoveredLink === link.id;
+
               return (
                 <a
                   key={link.id}
                   href={link.href}
-                  className={`relative py-1 text-xs md:text-[13px] lg:text-sm font-semibold tracking-wide transition-all ${
+                  onMouseEnter={() => setHoveredLink(link.id)}
+                  className={`relative px-3 py-1 lg:px-3.5 lg:py-1.5 rounded-full text-xs lg:text-[13px] font-semibold tracking-wide transition-colors duration-200 ${
                     isActive
-                      ? 'text-white font-bold'
-                      : 'text-white/80 hover:text-white'
+                      ? 'text-crest-gold font-bold'
+                      : 'text-white/85 hover:text-white'
                   }`}
                 >
-                  <span>{link.label}</span>
-                  {isActive && (
+                  {/* Floating Capsule Animation on Hover */}
+                  {isHovered && (
                     <motion.div
-                      layoutId="activeNavPillIndicator"
-                      className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-crest-gold rounded-full shadow-[0_0_8px_#F5BC28]"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      layoutId="navHoverCapsule"
+                      className="absolute inset-0 bg-white/20 rounded-full border border-white/25 shadow-sm"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ type: 'spring', bounce: 0.2, duration: 0.3 }}
                     />
                   )}
+
+                  <span className="relative z-10 flex items-center gap-1.5">
+                    {link.label}
+                    {isActive && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-crest-gold shadow-[0_0_6px_#F5BC28]" />
+                    )}
+                  </span>
                 </a>
               );
             })}
           </nav>
 
           {/* 3. Right Action Pill Button */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <div className="flex items-center gap-2 flex-shrink-0">
             <button
               onClick={onOpenInquiry}
-              className="rounded-full px-4 sm:px-5 lg:px-6 py-2 sm:py-2.5 bg-[#FAF7F2] hover:bg-white text-crest-heading font-bold text-xs sm:text-sm tracking-wide transition-all duration-200 shadow-md flex items-center gap-1.5 sm:gap-2 group hover:scale-[1.03] active:scale-[0.98]"
+              className="rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 bg-[#FAF7F2]/95 hover:bg-white text-crest-heading font-bold text-xs sm:text-[13px] tracking-wide transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-1.5 group hover:scale-[1.03] active:scale-[0.98] border border-white/40"
             >
               <span>Contact us</span>
-              <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-crest-teal transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-crest-teal transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
 
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-              className="md:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white transition-colors"
+              className="md:hidden w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white transition-colors"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
         </div>
