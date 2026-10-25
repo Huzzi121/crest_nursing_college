@@ -60,6 +60,20 @@
   border: 1px solid rgba(19, 166, 160, 0.25);
 }
 
+.navbar-pill {
+  background-color: #0A3D39 !important;
+  background: rgba(10, 61, 57, 0.96) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 12px 35px -5px rgba(10, 61, 57, 0.45);
+}
+
+.font-anton {
+  font-family: 'Anton', sans-serif !important;
+  letter-spacing: 0.03em;
+}
+
 /* Subtle Mask & Glow Utility */
 .glow-turquoise {
   box-shadow: 0 0 35px -5px rgba(19, 166, 160, 0.3);

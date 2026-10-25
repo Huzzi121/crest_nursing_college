@@ -34,11 +34,11 @@ export const AboutSection: React.FC = () => {
         </MotionWrapper>
 
         {/* Editorial Split Composition */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-stretch">
           {/* Left Column: Image with Masked Reveal & Depth */}
-          <div className="lg:col-span-6">
-            <MotionWrapper direction="right" duration={0.8} className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-crest-lg border-4 border-white aspect-[16/10] bg-white group">
+          <div className="lg:col-span-6 flex flex-col">
+            <MotionWrapper direction="right" duration={0.8} className="relative h-full flex flex-col">
+              <div className="relative rounded-3xl overflow-hidden shadow-crest-lg border-4 border-white h-full min-h-[440px] lg:min-h-[520px] bg-white group flex-1">
                 <img
                   src={siteAssets.aboutCollege}
                   alt="Nursing Instructor demonstrating clinical techniques in college lab"

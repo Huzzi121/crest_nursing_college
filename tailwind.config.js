@@ -26,6 +26,7 @@ export default {
       fontFamily: {
         sans: ['Manrope', 'sans-serif'],
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        anton: ['Anton', 'sans-serif'],
       },
       boxShadow: {
         'crest-sm': '0 2px 8px -2px rgba(8, 107, 104, 0.08)',
