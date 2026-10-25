@@ -38,7 +38,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
   return (
     <section
       id="hero"
-      className="relative min-h-[85vh] lg:min-h-[88vh] pt-24 pb-12 lg:pt-28 lg:pb-16 overflow-hidden flex items-center bg-gradient-to-b from-white via-crest-bgAlt/40 to-white scroll-mt-20"
+      className="relative min-h-screen min-h-[100dvh] pt-20 pb-4 lg:pt-24 lg:pb-6 overflow-hidden flex flex-col justify-between bg-gradient-to-b from-white via-crest-bgAlt/40 to-white scroll-mt-20"
     >
       {/* Background Subtle Geometric & Teal Medical Watermark Elements */}
       <div className="absolute top-12 right-0 w-96 h-96 bg-crest-turquoise/5 rounded-full blur-3xl pointer-events-none" />
@@ -62,8 +62,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
         </motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-center my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           {/* Left Column: Editorial Headline & Storytelling */}
           <motion.div
             variants={containerVariants}
@@ -75,7 +75,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
             {/* Location & Excellence Gold/Teal Pill Badge */}
             <motion.div
               variants={wordVariants}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-crest-bgAlt border border-crest-border shadow-crest-sm mb-6 w-fit"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-crest-bgAlt border border-crest-border shadow-crest-sm mb-4 w-fit"
             >
               <span className="w-2 h-2 rounded-full bg-crest-gold animate-pulse" />
               <span className="text-xs font-bold text-crest-heading tracking-wide uppercase">
@@ -84,7 +84,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
             </motion.div>
 
             {/* Asymmetrical Editorial Headline with Staggered Word Reveal */}
-            <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-crest-heading tracking-tight leading-[1.12] mb-6">
+            <h1 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-crest-heading tracking-tight leading-[1.14] mb-4 sm:mb-5">
               {headlineWords.map((word, i) => {
                 const isSpecial = word.includes('Compassion') || word.includes('Clinical');
                 const isExcellence = word.includes('Excellence');
@@ -92,13 +92,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
                   <motion.span
                     key={i}
                     variants={wordVariants}
-                    className={`inline-block mr-2.5 ${
-                      isSpecial
+                    className={`inline-block mr-2.5 ${isSpecial
                         ? 'text-crest-teal'
                         : isExcellence
-                        ? 'text-crest-heading relative font-serif italic font-normal'
-                        : 'text-crest-heading'
-                    }`}
+                          ? 'text-crest-heading relative font-serif italic font-normal'
+                          : 'text-crest-heading'
+                      }`}
                   >
                     {word}
                   </motion.span>
@@ -109,30 +108,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
             {/* Supporting Copy */}
             <motion.p
               variants={wordVariants}
-              className="text-base sm:text-lg text-crest-body max-w-2xl font-normal leading-relaxed mb-8"
+              className="text-sm sm:text-base text-crest-body max-w-2xl font-normal leading-relaxed mb-5 sm:mb-6"
             >
               {siteContent.hero.supportingText}
             </motion.p>
 
             {/* Animated ECG Pulse Graphic embedded gracefully */}
-            <motion.div variants={wordVariants} className="max-w-md mb-8">
+            <motion.div variants={wordVariants} className="max-w-md mb-5 sm:mb-6">
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-crest-teal">
                   Vital Signs of Professional Care
                 </span>
                 <span className="h-px flex-1 bg-crest-border" />
               </div>
-              <HeartbeatLine height={36} strokeColor="#086B68" glowColor="rgba(8, 107, 104, 0.25)" />
+              <HeartbeatLine height={32} strokeColor="#086B68" glowColor="rgba(8, 107, 104, 0.25)" />
             </motion.div>
 
             {/* CTA Buttons */}
             <motion.div
               variants={wordVariants}
-              className="flex flex-wrap items-center gap-4 pt-2"
+              className="flex flex-wrap items-center gap-4 pt-1"
             >
               <a
                 href="#programs"
-                className="px-7 py-3.5 rounded-xl bg-crest-teal hover:bg-crest-tealDark text-white font-bold text-xs uppercase tracking-wider shadow-crest-md hover:shadow-crest-lg transition-all duration-200 flex items-center gap-2 group"
+                className="px-6 py-3 rounded-xl bg-crest-teal hover:bg-crest-tealDark text-white font-bold text-xs uppercase tracking-wider shadow-crest-md hover:shadow-crest-lg transition-all duration-200 flex items-center gap-2 group"
               >
                 <span>{siteContent.hero.primaryCta}</span>
                 <ArrowRight className="w-4 h-4 text-crest-gold transition-transform group-hover:translate-x-1" />
@@ -140,14 +139,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
 
               <a
                 href="#about"
-                className="px-6 py-3.5 rounded-xl bg-white hover:bg-crest-bgAlt text-crest-heading hover:text-crest-teal border border-crest-border font-bold text-xs uppercase tracking-wider transition-all duration-200"
+                className="px-5 py-3 rounded-xl bg-white hover:bg-crest-bgAlt text-crest-heading hover:text-crest-teal border border-crest-border font-bold text-xs uppercase tracking-wider transition-all duration-200"
               >
                 {siteContent.hero.secondaryCta}
               </a>
 
               <button
                 onClick={onOpenInquiry}
-                className="px-4 py-3.5 text-xs font-bold text-crest-teal hover:text-crest-tealDark underline underline-offset-4 tracking-wider uppercase transition-colors"
+                className="px-3 py-3 text-xs font-bold text-crest-teal hover:text-crest-tealDark underline underline-offset-4 tracking-wider uppercase transition-colors"
               >
                 Inquire Directly →
               </button>
@@ -156,7 +155,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
             {/* Institutional Trust Highlights */}
             <motion.div
               variants={wordVariants}
-              className="grid grid-cols-3 gap-4 pt-10 mt-10 border-t border-crest-border/80 max-w-xl"
+              className="grid grid-cols-3 gap-4 pt-5 mt-5 sm:pt-6 sm:mt-6 border-t border-crest-border/80 max-w-xl"
             >
               {siteContent.hero.stats.map((stat, idx) => (
                 <div key={idx} className="flex flex-col">
@@ -173,14 +172,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
 
           {/* Right Column: Layered Editorial Photographic Composition */}
           <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
+            <div className="relative mx-auto max-w-sm lg:max-w-[400px]">
               {/* Primary Nurse Portrait with Editorial Arch/Rounded Mask */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.94, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.15 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.1 }}
-                className="relative rounded-3xl overflow-hidden shadow-crest-lg border-4 border-white z-10 aspect-[4/5] bg-crest-bgAlt"
+                className="relative rounded-3xl overflow-hidden shadow-crest-lg border-4 border-white z-10 aspect-[4/5] max-h-[460px] bg-crest-bgAlt"
               >
                 <img
                   src={siteAssets.heroPrimary}
@@ -188,7 +187,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700 ease-out"
                   loading="eager"
                 />
-                
+
                 {/* Gradient vignette wash */}
                 <div className="absolute inset-0 bg-gradient-to-t from-crest-heading/60 via-transparent to-transparent pointer-events-none" />
 
@@ -210,7 +209,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: false, amount: 0.15 }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.2 }}
-                className="absolute -bottom-8 -left-8 sm:-left-12 w-48 sm:w-56 aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-20 hidden sm:block bg-crest-bgAlt"
+                className="absolute -bottom-6 -left-6 sm:-left-10 w-44 sm:w-48 aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-20 hidden sm:block bg-crest-bgAlt"
               >
                 <img
                   src={siteAssets.heroSecondary}
@@ -232,7 +231,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: false, amount: 0.15 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="absolute -top-6 -right-4 sm:-right-6 z-20 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-crest-md border border-crest-border flex items-center gap-3"
+                className="absolute -top-5 -right-3 sm:-right-5 z-20 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-crest-md border border-crest-border flex items-center gap-3"
               >
                 <div className="w-10 h-10 rounded-xl bg-crest-gold/20 flex items-center justify-center text-crest-goldDark border border-crest-gold/40">
                   <Sparkles className="w-5 h-5 text-crest-goldDark" />
@@ -251,7 +250,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
         </div>
 
         {/* Gentle Looping Scroll Down Indicator */}
-        <div className="flex justify-center mt-12 lg:mt-16">
+        <div className="flex justify-center pt-3 pb-1 mt-auto">
           <a
             href="#about"
             aria-label="Scroll to About Section"
