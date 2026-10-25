@@ -35,7 +35,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen min-h-[100dvh] pt-24 pb-4 lg:pt-28 lg:pb-6 overflow-hidden flex flex-col justify-between scroll-mt-20 bg-[#072624]"
+      className="relative min-h-screen min-h-[100dvh] pt-20 sm:pt-24 lg:pt-24 pb-4 sm:pb-6 overflow-hidden flex flex-col justify-between scroll-mt-20 bg-[#072624]"
     >
       {/* Background Hero Banner Image: Smiling Doctor in Teal Hospital Corridor */}
       <div className="absolute inset-0 pointer-events-none select-none">
@@ -48,10 +48,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
         {/* Directional Shadow Vignette: Dark on text side, clear on doctor side */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#072624]/95 via-[#072624]/75 sm:via-[#072624]/45 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#072624]/80 via-transparent to-[#072624]/30" />
-
-        {/* Bottom Seamless Blur & Feathered Gradient Blend into Website */}
-        <div className="absolute bottom-0 inset-x-0 h-28 sm:h-40 backdrop-blur-[10px] bg-gradient-to-t from-crest-bgAlt via-crest-bgAlt/60 to-transparent [mask-image:linear-gradient(to_top,black_25%,transparent_100%)]" />
-        <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-crest-bgAlt to-transparent" />
       </div>
 
       {/* Main Content Area */}
@@ -137,20 +133,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
       </div>
 
       {/* Gentle Looping Scroll Down Indicator */}
-      <div className="flex justify-center pt-2 pb-2 mt-auto relative z-10">
+      <div className="flex justify-center pb-3 pt-2 mt-auto relative z-10">
         <a
           href="#about"
           aria-label="Scroll to About Section"
-          className="flex flex-col items-center gap-1 text-crest-heading/70 hover:text-crest-teal transition-colors group"
+          className="flex flex-col items-center gap-1 text-white/75 hover:text-crest-gold transition-colors group"
         >
-          <span className="text-[9px] uppercase font-bold tracking-widest group-hover:tracking-wider transition-all">
+          <span className="text-[10px] uppercase font-bold tracking-widest text-white/75 group-hover:text-crest-gold transition-all">
             Discover Crest
           </span>
           <motion.div
             animate={prefersReduced ? {} : { y: [0, 4, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <ChevronDown className="w-3.5 h-3.5 text-crest-teal" />
+            <ChevronDown className="w-4 h-4 text-crest-gold" />
           </motion.div>
         </a>
       </div>
