@@ -37,8 +37,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
       id="hero"
       className="relative min-h-screen min-h-[100dvh] pt-20 sm:pt-24 lg:pt-24 pb-4 sm:pb-6 overflow-hidden flex flex-col justify-between scroll-mt-20 bg-[#072624]"
     >
-      {/* Background Hero Banner Image: Smiling Doctor in Teal Hospital Corridor */}
-      <div className="absolute inset-0 pointer-events-none select-none">
+      {/* Background Hero Banner Image - Desktop (md and up) - 100% UNCHANGED */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none select-none">
         <img
           src="/assets/images/hero_bg.png"
           alt="Smiling Doctor in Teal Hospital Corridor"
@@ -50,6 +50,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#072624]/80 via-transparent to-[#072624]/30" />
       </div>
 
+      {/* Background Hero Banner Image - Mobile (< md) - Dedicated Portrait Hero */}
+      <div className="md:hidden absolute inset-0 pointer-events-none select-none">
+        <img
+          src="/assets/images/hero_mobile_banner.jpg"
+          alt="Smiling Healthcare Professional at Crest College"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        {/* Mobile Gradient Vignette: Deep contrast for text readability, glowing doctor visibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#072624] via-[#072624]/75 via-60% to-[#072624]/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#072624]/85 via-transparent via-20% to-transparent" />
+      </div>
+
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-center my-auto">
         <motion.div
@@ -57,15 +70,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.15 }}
-          className="max-w-xl xl:max-w-2xl flex flex-col justify-center py-6"
+          className="max-w-xl xl:max-w-2xl flex flex-col justify-center py-4 sm:py-6"
         >
           {/* Subtle Institutional Gold Badge */}
           <motion.div
             variants={wordVariants}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/30 backdrop-blur-md border border-crest-gold/40 shadow-sm mb-4 w-fit"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-crest-gold/40 shadow-sm mb-3 sm:mb-4 w-fit max-w-full"
           >
-            <span className="w-2 h-2 rounded-full bg-crest-gold animate-pulse" />
-            <span className="text-[11px] font-bold text-crest-gold tracking-wider uppercase">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-crest-gold animate-pulse flex-shrink-0" />
+            <span className="text-[10px] sm:text-[11px] font-bold text-crest-gold tracking-wider uppercase truncate">
               Abbottabad, Pakistan • Crest College of Nursing
             </span>
           </motion.div>
@@ -73,7 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
           {/* Impactful Anton Headline */}
           <motion.h1
             variants={wordVariants}
-            className="font-anton text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] leading-[1.12] mb-4 tracking-wide"
+            className="font-anton text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] leading-[1.12] mb-3 sm:mb-4 tracking-wide"
           >
             <span className="text-white font-bold">
               Where Compassion Meets{' '}
@@ -84,18 +97,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
           </motion.h1>
 
           {/* Micro ECG Line */}
-          <motion.div variants={wordVariants} className="max-w-xs mb-5 opacity-90">
+          <motion.div variants={wordVariants} className="max-w-[240px] sm:max-w-xs mb-4 sm:mb-5 opacity-90">
             <HeartbeatLine height={24} strokeColor="#13A6A0" glowColor="rgba(19, 166, 160, 0.4)" />
           </motion.div>
 
           {/* Compact CTA Buttons */}
           <motion.div
             variants={wordVariants}
-            className="flex flex-wrap items-center gap-3 pt-1"
+            className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1"
           >
             <a
               href="#programs"
-              className="px-5 py-2.5 rounded-full bg-crest-teal hover:bg-crest-tealDark text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-200 flex items-center gap-2 group border border-white/20"
+              className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-crest-teal hover:bg-crest-tealDark text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-200 flex items-center gap-1.5 sm:gap-2 group border border-white/20 active:scale-95"
             >
               <span>Explore Programs</span>
               <ArrowRight className="w-3.5 h-3.5 text-crest-gold transition-transform group-hover:translate-x-1" />
@@ -103,7 +116,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
 
             <button
               onClick={onOpenInquiry}
-              className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-xs uppercase tracking-wider backdrop-blur-sm transition-all duration-200 hover:border-crest-gold/50"
+              className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-xs uppercase tracking-wider backdrop-blur-sm transition-all duration-200 hover:border-crest-gold/50 active:scale-95"
             >
               Inquire Now
             </button>
@@ -112,21 +125,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
           {/* Key Impact Stats Row */}
           <motion.div
             variants={wordVariants}
-            className="flex items-center gap-5 sm:gap-7 pt-5 mt-5 border-t border-white/15 max-w-md"
+            className="flex items-center gap-4 sm:gap-7 pt-4 sm:pt-5 mt-4 sm:mt-5 border-t border-white/15 max-w-md"
           >
             <div>
-              <div className="text-lg sm:text-xl font-extrabold text-white leading-tight">100%</div>
-              <div className="text-[10px] font-semibold text-white/70 uppercase tracking-wider mt-0.5">Accredited</div>
+              <div className="text-base sm:text-xl font-extrabold text-white leading-tight">100%</div>
+              <div className="text-[9px] sm:text-[10px] font-semibold text-white/70 uppercase tracking-wider mt-0.5">Accredited</div>
             </div>
-            <div className="w-px h-7 bg-white/20" />
+            <div className="w-px h-6 sm:h-7 bg-white/20" />
             <div>
-              <div className="text-lg sm:text-xl font-extrabold text-crest-gold leading-tight">98%</div>
-              <div className="text-[10px] font-semibold text-white/70 uppercase tracking-wider mt-0.5">Placement</div>
+              <div className="text-base sm:text-xl font-extrabold text-crest-gold leading-tight">98%</div>
+              <div className="text-[9px] sm:text-[10px] font-semibold text-white/70 uppercase tracking-wider mt-0.5">Placement</div>
             </div>
-            <div className="w-px h-7 bg-white/20" />
+            <div className="w-px h-6 sm:h-7 bg-white/20" />
             <div>
-              <div className="text-lg sm:text-xl font-extrabold text-white leading-tight">1:8</div>
-              <div className="text-[10px] font-semibold text-white/70 uppercase tracking-wider mt-0.5">Faculty Ratio</div>
+              <div className="text-base sm:text-xl font-extrabold text-white leading-tight">1:8</div>
+              <div className="text-[9px] sm:text-[10px] font-semibold text-white/70 uppercase tracking-wider mt-0.5">Faculty Ratio</div>
             </div>
           </motion.div>
         </motion.div>

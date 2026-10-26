@@ -25,7 +25,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-crest-body flex flex-col selection:bg-crest-turquoise selection:text-white">
+    <div className="min-h-screen bg-white text-crest-body flex flex-col selection:bg-crest-turquoise selection:text-white overflow-x-hidden w-full relative">
       {/* Sticky Top Header Navigation */}
       <Navbar onOpenInquiry={() => handleOpenInquiry()} />
 
