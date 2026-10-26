@@ -10,7 +10,7 @@ interface AdmissionsSectionProps {
 
 export const AdmissionsSection: React.FC<AdmissionsSectionProps> = ({ onOpenInquiry }) => {
   return (
-    <section className="py-16 lg:py-20 bg-white relative overflow-hidden">
+    <section className="py-8 sm:py-12 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <MotionWrapper direction="up">
           <div className="relative rounded-3xl bg-gradient-to-br from-crest-teal via-crest-tealSecondary to-crest-tealDark text-white overflow-hidden shadow-2xl p-8 sm:p-12 lg:p-16">

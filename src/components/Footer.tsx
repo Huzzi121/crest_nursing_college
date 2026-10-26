@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-crest-heading text-white relative overflow-hidden pt-16 pb-12">
+    <footer className="bg-crest-heading/95 backdrop-blur-md text-white relative overflow-hidden pt-10 pb-8">
       {/* Animated Subtle ECG Heartbeat Flourish across top border */}
       <div className="absolute top-0 inset-x-0">
         <HeartbeatLine height={24} strokeColor="#13A6A0" glowColor="rgba(19, 166, 160, 0.4)" showDot={false} />

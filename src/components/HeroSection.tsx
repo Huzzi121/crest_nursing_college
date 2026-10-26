@@ -35,10 +35,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen min-h-[100dvh] pt-20 sm:pt-24 lg:pt-24 pb-4 sm:pb-6 overflow-hidden flex flex-col justify-between scroll-mt-20 bg-[#072624]"
+      className="relative min-h-screen min-h-[100dvh] pt-16 sm:pt-20 lg:pt-20 pb-2 sm:pb-3 overflow-hidden flex flex-col justify-between scroll-mt-20 bg-[#072624]"
     >
-      {/* Background Hero Banner Image - Desktop (md and up) - 100% UNCHANGED */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none select-none">
+      {/* Background Hero Banner Image - Desktop (md and up) with seamless bottom fade */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none select-none [mask-image:linear-gradient(to_bottom,black_88%,transparent_100%)]">
         <img
           src="/assets/images/hero_bg.png"
           alt="Smiling Doctor in Teal Hospital Corridor"
@@ -50,8 +50,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#072624]/80 via-transparent to-[#072624]/30" />
       </div>
 
-      {/* Background Hero Banner Image - Mobile (< md) - Dedicated Portrait Hero */}
-      <div className="md:hidden absolute inset-0 pointer-events-none select-none">
+      {/* Background Hero Banner Image - Mobile (< md) with seamless bottom fade */}
+      <div className="md:hidden absolute inset-0 pointer-events-none select-none [mask-image:linear-gradient(to_bottom,black_88%,transparent_100%)]">
         <img
           src="/assets/images/hero_mobile_banner.jpg"
           alt="Smiling Healthcare Professional at Crest College"
@@ -62,6 +62,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#072624] via-[#072624]/75 via-60% to-[#072624]/40" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#072624]/85 via-transparent via-20% to-transparent" />
       </div>
+
+      {/* Seamless Feathered Transition into Global Background */}
+      <div className="absolute bottom-0 inset-x-0 h-20 sm:h-28 bg-gradient-to-b from-transparent via-[#072624]/30 to-transparent pointer-events-none z-10" />
 
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-center my-auto">

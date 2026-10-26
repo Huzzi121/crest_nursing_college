@@ -16,13 +16,13 @@ export const ClinicalSection: React.FC = () => {
   ];
 
   return (
-    <section id="clinical" className="py-20 lg:py-24 bg-crest-bgAlt relative overflow-hidden scroll-mt-20">
+    <section id="clinical" className="py-8 sm:py-12 bg-transparent relative overflow-hidden scroll-mt-20">
       {/* Decorative medical background lines */}
       <div className="absolute -top-24 right-10 w-72 h-72 bg-crest-turquoise/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <MotionWrapper direction="up" className="max-w-3xl mb-16">
+        <MotionWrapper direction="up" className="max-w-3xl mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-crest-border text-xs font-bold uppercase tracking-wider text-crest-teal mb-3 shadow-crest-sm">
             <Stethoscope className="w-3.5 h-3.5 text-crest-gold" />
             <span>{siteContent.clinical.sectionTag}</span>

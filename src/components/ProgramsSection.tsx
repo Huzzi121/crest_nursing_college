@@ -14,10 +14,10 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onOpenInquiry 
   const [selectedProgram, setSelectedProgram] = useState<ProgramItem | null>(null);
 
   return (
-    <section id="programs" className="py-20 lg:py-24 bg-white relative overflow-hidden scroll-mt-20">
+    <section id="programs" className="py-8 sm:py-12 bg-transparent relative overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-6">
           <MotionWrapper direction="up" className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crest-bgAlt border border-crest-border text-xs font-bold uppercase tracking-wider text-crest-teal mb-3 shadow-crest-sm">
               <GraduationCap className="w-3.5 h-3.5 text-crest-gold" />
